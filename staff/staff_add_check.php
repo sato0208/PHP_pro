@@ -24,6 +24,10 @@
         print $staff_name;
         print '<br/>';
       }
+      if($staff_pass=='')
+      {
+        print 'パスワードが入力されていません <br/>';
+      }
     ?>
   </body>
 </html>
