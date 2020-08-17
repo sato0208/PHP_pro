@@ -28,6 +28,10 @@
       {
         print 'パスワードが入力されていません <br/>';
       }
+      if($staff_pass!=$staff_pass2)
+      {
+        print 'パスワードが一致しません <br/>';
+      }
     ?>
   </body>
 </html>
