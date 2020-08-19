@@ -5,6 +5,7 @@
     <title>ろくまる農園</title>
   </head>
   <body>
+    <?php
     try
     {
       // データベースに接続
@@ -13,6 +14,11 @@
         $password ='';
         $dbh = new PDO($dsn, $user, $password);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql ='SELECT name FROM mst_staff WHERE 1';
+        $stmt = $dbh -> prepare($sql);
+        $stmt = $execute();
     }
+    ?>
   </body>
 </html>
