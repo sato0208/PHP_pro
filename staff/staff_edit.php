@@ -5,6 +5,10 @@
     <title>ろくまる農園</title>
   </head>
   <body>
+  <?php
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
+?>
     <?php
     try{
       // 選択されたスタッフコードを受け取る
@@ -18,7 +22,7 @@
       $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       // スタッフコードで絞り込む
-      $sql = 'SELECT name FROM mast_staff WHERE code=?';
+      $sql = 'SELECT name FROM mst_staff WHERE code=?';
       $stmt = $dbh ->prepare($sql);
       $data[]=$staff_code;
       $stmt->execute($data);
