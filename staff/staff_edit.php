@@ -12,7 +12,7 @@ error_reporting(E_ALL);
     <?php
     try{
       // 選択されたスタッフコードを受け取る
-      $staff_code=$_POST['staffcode'];
+      $staff_code=$_GET['staffcode'];
 
       // データベースに接続
       $dsn ='mysql:dbname=shop;host=localhost;charset=utf8';
