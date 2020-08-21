@@ -18,6 +18,23 @@
         $sql ='SELECT name FROM mst_staff WHERE 1';
         $stmt = $dbh -> prepare($sql);
         $stmt = $execute();
+
+        $dbn = null;
+
+        print 'スタッフ一覧 <br/>,<br/>';
+
+        while(true){
+          $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+          if($rec == false){
+            break;
+          }
+          print $rec['name'];
+          print '<br/>';
+        }
+    }
+    catch(Excenption $e){
+      print 'ただいま障害により大変ご迷惑をおかけしております';
+      exit();
     }
     ?>
   </body>
