@@ -1,10 +1,20 @@
 <?php
 if(isset($_POST['edit']) == true){
+  // もしスタッフコードが選ばれていない場合はNG画面に飛ぶ
+  if(isset($staff_code['staffcode']) == false){
+    header('Location: staff_ng.php');
+    exit();
+  }
   $staff_code=$_POST['staffcode'];
   header('Location: staff_edit.php?staffcode='.$staff_code);
   exit();
 }
 if(isset($_POST['delete']) == true){
+  // もしスタッフコードが選ばれていない場合はNG画面に飛ぶ
+  if(isset($_POST['staffcode']) == false){
+    header('Location: staff_ng.php');
+    exit();
+  }
   $staff_code=$_POST['staffcode'];
   header('Location: staff_delete.php?staffxode='.$staff_code);
   exit();
