@@ -28,7 +28,7 @@ error_reporting(E_ALL);
         print 'スタッフ一覧 <br/><br/>';
 
         // 修正画面屁飛べるようにする
-        print '<form method="post" action="staff_edit.php">';
+        print '<form method="post" action="staff_branch.php">';
         while(true){
           $rec = $stmt->fetch(PDO::FETCH_ASSOC);
           if($rec == false){
@@ -39,7 +39,8 @@ error_reporting(E_ALL);
           print $rec['name'];
           print '<br/>';
         }
-        print '<input type="submit" value="修正">';
+        print '<input type="submit" name="edit" value="修正">';
+        print '<input type="submit" name="delete" value="削除">';
         print '</form>';
     }
     catch(Exception $e){
