@@ -5,6 +5,10 @@
     <title>ろくまる農園</title>
   </head>
   <body>
+  <?php
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
+?> 
     <?php
     try
     {
@@ -17,7 +21,7 @@
 
         $sql ='SELECT name FROM mst_staff WHERE 1';
         $stmt = $dbh -> prepare($sql);
-        $stmt = $execute();
+        $stmt -> execute();
 
         $dbh = null;
 
