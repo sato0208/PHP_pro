@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['edit']) == true){
   // もしスタッフコードが選ばれていない場合はNG画面に飛ぶ
-  if(isset($staff_code['staffcode']) == false){
+  if(isset($_POST['staffcode']) == false){
     header('Location: staff_ng.php');
     exit();
   }
@@ -16,7 +16,7 @@ if(isset($_POST['delete']) == true){
     exit();
   }
   $staff_code=$_POST['staffcode'];
-  header('Location: staff_delete.php?staffxode='.$staff_code);
+  header('Location: staff_delete.php?staffcode='.$staff_code);
   exit();
 }
 ?>
