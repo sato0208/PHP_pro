@@ -5,6 +5,10 @@
     <title>ろくまる農園</title>
   </head>
   <body>
+  <?php
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
+?>
 
     <?php
     try{
