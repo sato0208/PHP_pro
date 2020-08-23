@@ -39,23 +39,17 @@ error_reporting(E_ALL);
     }
     ?>
 
-    スタッフ修正<br/>
+    スタッフ情報参照<br/>
     <br/>
     スタッフコード<br/>
     <?php print $staff_code; ?>
     <br/>
-    <form method="post" action="staff_edit_check.php">
-      <input type="hidden" name="code" value="<?php print $staff_code; ?>">
-      スタッフ名<br/>
-      <!-- 名前を入れた状態で表示させる -->
-      <input type="text" name="name" style="width:100px" value="<?php print $staff_name; ?>"><br/>
-      パスワードを入力して下さい。<br/>
-      <input type="password" name="pass" style="width:200px"><br/>
-      パスワードをもう一度入力してください。<br/>
-      <input type="password" name="pass2" style="width:200px"><br/>
-      <br/>
+    スタッフ名<br/>
+    <?php print $staff_name; ?>
+    <br/>
+    <br/>
+    <form>
       <input type="button" onclick="history.back()" value="戻る">
-      <input type="submit" value="OK">
     </form>
   </body>
 </html>
