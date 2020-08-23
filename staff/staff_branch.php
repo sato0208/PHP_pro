@@ -1,4 +1,8 @@
 <?php
+if(isset($_POST['add'])) == true){
+  header('Location: staff_add.php');
+  exit();
+}
 if(isset($_POST['edit']) == true){
   // もしスタッフコードが選ばれていない場合はNG画面に飛ぶ
   if(isset($_POST['staffcode']) == false){
