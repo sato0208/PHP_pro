@@ -26,7 +26,7 @@ error_reporting(E_ALL);
         print $pro_name;
         print '<br/>';
       }
-      if(preg_match('/¥A[0-9]+¥z/',$pro_price)==0)
+      if(preg_match("/^[0-9]+$/",$pro_price)==0)
       {
         print '価格をきちんと入力してください <br/>';
       }
@@ -36,7 +36,7 @@ error_reporting(E_ALL);
         print $pro_price;
         print '円<br/>';
       }
-      if($pro_name==''|| preg_match('/¥A[0-9]+¥z/', $pro_price) == 0)
+      if($pro_name==''|| preg_match("/^[0-9]+$/", $pro_price) == 0)
       {
         print '<form>';
         print '<input type="button" onclick="history.back()" value="戻る">';
