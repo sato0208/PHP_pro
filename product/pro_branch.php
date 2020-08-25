@@ -8,7 +8,7 @@ if(isset($_POST['disp']) == true){
     exit();
   }
   $pro_code=$_POST['procode'];
-  header('Location: pro_disp.php?staffcode='.$pro_code);
+  header('Location: pro_disp.php?procode='.$pro_code);
   exit();
 }
 
