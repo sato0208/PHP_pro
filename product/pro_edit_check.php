@@ -13,6 +13,8 @@ error_reporting(E_ALL);
       $pro_code=$_POST['code'];
       $pro_name=$_POST['name'];
       $pro_price=$_POST['price'];
+      $pro_gazou_name_old=$_POST['gazou_name_old'];
+      $pro_gazou=$_FILES['gazou'];
 
       $pro_code=htmlspecialchars($pro_code,ENT_QUOTES,'UTF-8');
       $pro_name=htmlspecialchars($pro_name,ENT_QUOTES,'UTF-8');
@@ -38,7 +40,21 @@ error_reporting(E_ALL);
         print $pro_price;
         print '円<br/>';
       }
-      if($pro_name==''|| preg_match("/^[0-9]+$/", $pro_price) == 0)
+
+      // 画像サイズが0より大きければ画像があると判定
+      if($pro_gazou['size'] > 0){
+        if($pro_gazou['size'] > 10000000){
+          print '画像が大きすぎます';
+        }else{
+          // 画像を[gazou]フォルダにアップロードする
+          move_uploaded_file($pro_gazou['tmp_name'],'../gazou/'.$pro_gazou['name']);
+          // アップロードした画像を表示する
+          print '<img src="../gazou/'.$pro_gazou['name'].'">';
+          print '<br/>';
+        }
+      }
+
+      if($pro_name==''|| preg_match("/^[0-9]+$/", $pro_price) == 0 || $pro_gazou['size']>1000)
       {
         print '<form>';
         print '<input type="button" onclick="history.back()" value="戻る">';
@@ -51,6 +67,8 @@ error_reporting(E_ALL);
         print '<input type="hidden" name="code" value="'.$pro_code.'">';
         print '<input type="hidden" name="name" value="'.$pro_name.'">';
         print '<input type="hidden" name="price" value="'.$pro_price.'">';
+        print '<input type="hidden" name="gazou_name_old" value="'.$pro_gazou_name_old.'">';
+        print '<input type="hidden" name="gazou_name" value="'.$pro_gazou['name'].'">';
         print '<br/>';
         print '<input type="button" onclick="history.back()" value="戻る">';
         print '<input type="submit" value="OK">';
