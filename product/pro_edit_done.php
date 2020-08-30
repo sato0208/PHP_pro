@@ -39,11 +39,12 @@
         // データベースから切断
         $dbh = null;
 
+      if($pro_gazou_name_old != $pro_gazou_name_old){
         // もし古い画像があれば削除する
         if($pro_gazou_name_old!=''){
           unlink('../gazou/'.$pro_gazou_name_old);
         }
-
+      }
         // さんを追加しましたと表示させる
         print '修正しました。<br/>';
       }
