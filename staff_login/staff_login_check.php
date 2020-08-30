@@ -15,7 +15,7 @@
     $dbh = new PDO($dsn, $user, $password);
     $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql ='SELECT code, name FROM mst_staff WHERE code=? AND password=?';
+    $sql ='SELECT name FROM mst_staff WHERE code=? AND password=?';
     $stmt = $dbh -> prepare($sql);
     $data[] = $staff_code;
     $data[] = $staff_pass;
@@ -23,9 +23,11 @@
 
     $dbh = null;
 
+    $rec = $stmt ->fetch(PDO::FETCH_ASSOC);
+
     if($rec==false){
       print 'スタッフコードかパスワードが間違っています<br/>';
-      print '<a href~"staff_login.html">戻る</a>';
+      print '<a href="staff_login.html">戻る</a>';
     }else{
       header('Location: staff_top.php');
       exit();
