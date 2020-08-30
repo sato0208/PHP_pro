@@ -54,7 +54,7 @@ error_reporting(E_ALL);
         }
       }
 
-      if($pro_name==''|| preg_match("/^[0-9]+$/", $pro_price) == 0 || $pro_gazou['size']>1000)
+      if($pro_name==''|| preg_match("/^[0-9]+$/", $pro_price) == 0 || $pro_gazou['size']>1000000)
       {
         print '<form>';
         print '<input type="button" onclick="history.back()" value="戻る">';
