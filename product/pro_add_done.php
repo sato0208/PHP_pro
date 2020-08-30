@@ -11,6 +11,8 @@
         // 前画面から受け取ったデータをコピー
         $pro_name = $_POST['name'];
         $pro_price = $_POST['price'];
+        // 画像をデータベースに保存
+        $pro_gazou_name = $_POST['gazou_name'];
 
         // 入力データに安全対策
         $pro_name = htmlspecialchars($pro_name,ENT_QUOTES,'UTF-8');
@@ -24,10 +26,11 @@
         $dbh -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // sql文を使ってコードを追加
-        $sql = 'INSERT INTO mst_product(name,price)VALUES (?,?)';
+        $sql = 'INSERT INTO mst_product(name,price,gazou)VALUES (?,?,?)';
         $stmt = $dbh ->prepare($sql);
         $data[] = $pro_name;
         $data[] = $pro_price;
+        $data[] = $pro_gazou_name;
         $stmt->execute($data);
 
         // データベースから切断
