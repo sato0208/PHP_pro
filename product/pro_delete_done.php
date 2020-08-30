@@ -14,6 +14,7 @@ error_reporting(E_ALL);
       {
         // 前画面から受け取ったデータをコピー
         $pro_code = $_POST['code'];
+        $pro_gazou_name=$_POST['gazou_name'];
 
         // データベースに接続
         $dsn ='mysql:dbname=shop;host=localhost;charset=utf8';
@@ -30,6 +31,10 @@ error_reporting(E_ALL);
 
         // データベースから切断
         $dbh = null;
+
+        if($pro_gazou_name != ''){
+          unlink('../gazou/'.$pro_gazou_name);
+        }
 
       }
       catch (Exception $e)
