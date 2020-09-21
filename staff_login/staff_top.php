@@ -1,5 +1,6 @@
 <?php
 session_start();
+session_register_id(true);
 if(isset($_SESSION['login'])==false)
 {
   print 'ログインされていません<br/>';
