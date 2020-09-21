@@ -7,6 +7,11 @@ if(isset($_SESSION['login'])==false)
   print '<a href="../staff_login/staff/login.html">ログイン画面へ</a>';
   exit();
 }
+else{
+  print $_SESSION['staff_name'];
+  print 'さんログイン中<br/>';
+  print '<br/>';
+}
 ?>
 
 <!DOCTYPE html>
